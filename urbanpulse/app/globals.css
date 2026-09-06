@@ -1,0 +1,166 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+/* ─── Lenis Smooth Scroll Core Styles ────────────────────────── */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ─── CSS Custom Properties (Design Tokens) ─────────────────── */
+:root {
+  --bg-main: #030508;
+  --bg-secondary: #080C12;
+  --surface: #0C121B;
+  --surface-hover: #111923;
+
+  --text-primary: #F7F9FC;
+  --text-secondary: #B6C2D1;
+  --text-muted: #7F8C9E;
+
+  --blue: #2F81F7;
+  --cyan: #22D3EE;
+  --orange: #F59E0B;
+  --violet: #A855F7;
+  --danger: #F43F5E;
+  --success: #10B981;
+  --warning: #FBBF24;
+
+  --border: rgba(148,163,184,0.14);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+/* ─── Reset & Base ───────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.3); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.5); }
+
+/* ─── Selection ──────────────────────────────────────────── */
+::selection {
+  background: rgba(47, 129, 247, 0.3);
+  color: var(--text-primary);
+}
+
+/* ─── Typography ─────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ─── Global Layout System ────────────────────────────────── */
+.section {
+  width: 100%;
+  min-height: 100svh;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  padding-block: 120px;
+}
+
+@media (max-width: 1439px) { .section { padding-block: 96px; } }
+@media (max-width: 1024px) { .section { padding-block: 80px; } }
+@media (max-width: 767px) { .section { padding-block: 64px; } }
+
+.page-container {
+  width: 100%;
+  max-width: 1600px;
+  margin-inline: auto;
+  padding-inline: clamp(48px, 5vw, 88px);
+}
+
+@media (max-width: 1439px) { .page-container { padding-inline: 48px; } }
+@media (max-width: 1024px) { .page-container { padding-inline: 28px; } }
+@media (max-width: 767px) { .page-container { padding-inline: 20px; } }
+
+/* ─── HUD font sizing ────────────────────────────────────── */
+.hud-text {
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+}
+
+/* ─── Standardized Glass Card ─────────────────────────────── */
+.premium-card {
+  background: rgba(10, 15, 23, 0.75);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.24);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Base utility for icons */
+.feature-icon-container {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 20px;
+}
+
+/* Subtle background texture */
+.bg-texture {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: radial-gradient(var(--text-secondary) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
