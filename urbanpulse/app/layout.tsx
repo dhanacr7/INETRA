@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   title: "INETRA — AI Urban Intelligence Platform",
   description:
     "INETRA unifies public transport cameras, roadside AI cameras, and existing city CCTV into a cooperative, self-verifying urban intelligence network. BEL SIH26124.",
+  icons: {
+    icon: "/INETRA LOGO.jpeg",
+    shortcut: "/INETRA LOGO.jpeg",
+  },
   keywords: [
     "urban intelligence",
     "AI traffic monitoring",
