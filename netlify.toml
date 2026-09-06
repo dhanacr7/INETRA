@@ -1,0 +1,3 @@
+[build]
+  base = "urbanpulse"
+  command = "npm run build"
