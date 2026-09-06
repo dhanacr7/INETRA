@@ -6,10 +6,16 @@ interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   id?: string;
 }
 
-export default function Section({ children, className = '', id, ...props }: SectionProps) {
-  return (
-    <section id={id} className={`section ${className}`} {...props}>
-      {children}
-    </section>
-  );
-}
+const Section = React.forwardRef<HTMLElement, SectionProps>(
+  ({ children, className = '', id, ...props }, ref) => {
+    return (
+      <section ref={ref} id={id} className={`section ${className}`} {...props}>
+        {children}
+      </section>
+    );
+  }
+);
+
+Section.displayName = 'Section';
+
+export default Section;
